@@ -1,0 +1,7 @@
+abstract class
+-----------------
+void test();----unimplemented method
+void test1()----implemented method
+{
+
+}
