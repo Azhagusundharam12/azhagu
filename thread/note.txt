@@ -1,0 +1,127 @@
+multitasking
+------------------
+1.multiprocessing--os (heavy weight process)
+2.multithreading---java (light weight process)
+------------------
+1000 ms=1 sec
+2 ms=0.002 sec;
+------------------
+Definition: 
+A thread is a single sequential flow of control within a program
+thread type
+---------
+1.user thread
+	1.independent thread
+	2.foreground thread
+	3.high priority
+	4.we can create
+2.daemons thread
+	1.dependent thread
+	2.BACKGROUND thread
+	3.low priority
+	4.we can't create
+	
+ 3 thread are by default
+ ----------------
+ 1.main-user
+ 2.Thread schedular---daemons
+ 3.Garbage collector--daemons
+ 
+ we can create tread in java by two way
+ ------------
+ 1.extending by Thread class
+ 2.implementing by Runnable interface
+ 
+ 
+ thread properties
+ -----------------------
+ 1.id
+ 2.name=thread-0
+ 3.priority=5
+ 4.daemons status=false
+ 
+ main thread
+ -----------
+ 1.id=1
+ 2.name=main
+ 3.priority=5
+ 4.daemons status=false
+ 
+ priority
+ --------------
+ max=10
+ min=1
+ norm=5
+ 
+ Thread life cycle(States of a thread)
+ ------------------------------------
+ 1.new
+ 2.runnable
+ 3.terminated
+ 4.waiting
+ 5.timed waiting
+ 6.blocked
+ 
+ Deadlock
+ --------------
+ Inter thread communication
+ --------------------
+  class A
+ {
+	synchronized void test()
+	 {
+	wait();
+	 -----
+	 ----
+	 ----
+	 -----
+	 }
+	notify();
+	notifyAll();
+ }
+ 
+ 
+ A a1=new A();//object lock
+ t1--a1.test()
+ t2--a1.test()
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
