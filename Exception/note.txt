@@ -1,0 +1,46 @@
+Exception:
+--------------------------------
+It is an abnormal condition
+eg.
+10/0
+Throws
+---------
+It is mainly used for throwing exception to the caller.
+
+throw
+-------
+It is mainly used for arising user defined exception.
+when my jvm is not able to find out.
+
+Throwable--java.lang
+	1.Exception
+	2.Error
+Exception
+	RuntimeException(unchecked exception)-try catch is not mandatory
+		1.Arithmetic
+		2.classcast
+		3.ArrayIndex...
+		4.Nullpointer
+		5.NumberFormat
+		etc
+(checked exception)--try catch is mandatory
+1.Sql
+2.IO
+3.classnotfound exception
+4.Filenotfound
+5.Interrupted
+etc
+Error-It is runtime
+------
+It is due some third resources like  memory.
+	1.StackkoverFlow
+	2.Assertion
+	3.Nosuchmethod
+	etc
+Unchecked Exception:
+--------------------
+here try catch is not mandatory for compilation
+
+Checked Exception
+---------------
+here try catch is mandatory for compilation
