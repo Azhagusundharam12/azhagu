@@ -1,0 +1,28 @@
+class A
+{
+	int i=10;
+	void test()
+	{
+	
+	}
+}
+
+----------------
+class B 
+{
+	psvm()
+	{
+		B b1=new B();
+		sop(b1.i);
+		b1.test();
+	}
+}
+
+types
+--------
+1.single level
+2.multi level
+3.Hierarchical
+in c++
+4.multiple
+5.Hybrid
