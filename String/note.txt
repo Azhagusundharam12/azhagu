@@ -1,0 +1,54 @@
+String :It is one of the final class --java.lang
+memory
+----
+	1.heap-only for storage purpose
+	2.stack-only for execution purpose
+pool
+-----
+1.constant pool
+2.non constant pool
+Note:
+* String is the only class whose object we can create by using new keyword
+or without using new keyword *
+
+string operation
+-------------
+1.concatanation
+2.comparision
+3.substring(Extraction)
+
+mutable
+immutable
+---------
+String class object is a immutable(once it is created it cannot be changed)
+
+
+Reg
+-----
+1.void register()
+{
+
+}
+2.void display()
+{
+
+}
+
+Login extends Reg
+-----------------
+1.void login()
+{
+
+}
+2. void validate()
+{
+
+}
+3.main()
+{
+ register()
+ login()
+ validate()
+}
+
+
