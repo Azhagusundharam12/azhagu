@@ -1,0 +1,28 @@
+constructor-
+constructor is a method which is used for initializing the non
+static member variables.
+--------------
+rules:
+--------
+1.constructor name should be the same name what ever class name
+2.it is not having any return type
+3.we can't call constructor
+4.constructor is automatically executing while creating an object
+5.without constructor we can't create any object
+6.the first statement of every constructor is super()
+
+Default Constructor
+----------------
+when ever we are not keeping any constructor then
+compiler is keeping one constructor
+that is called default constructor
+which is always no argument
+
+----------------
+super()--calling their super class constructor
+
+Object class-Supermost class for every class in java
+
+
+
+
