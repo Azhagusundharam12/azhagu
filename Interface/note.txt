@@ -1,0 +1,30 @@
+Rules:
+-----------
+class-class=extends
+class-interface=implements
+interface-interface=extends
+interface-class= not possible
+
+Information
+	1.details
+	2.address
+Student---
+	
+Teacher--
+
+School---
+
+
+Difference between Abstract class and Interface
+-----------------------------------
+1.we cant extends more than one class in abstract class but in interface we can
+2.we can keep constructor in abstract class but cant in interface
+3.In abstract class both implemented and 
+unimplemented but in interface only unimplemented
+4.In abstract class methods are not by default public and abstract
+but in interface
+5.In abstract class we are using extends but in interface implements
+6.In abstract class variables are not public static final by default but
+in interface
+
+
