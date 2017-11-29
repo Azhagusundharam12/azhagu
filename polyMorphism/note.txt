@@ -1,0 +1,16 @@
+polymorphism
+------------------
+many form
+Topic
+---------------
+1.Inheritance
+2.Method overriding
+3.Casting
+
+void test(int i)
+{
+
+}
+test(89.45);
+
+A a1=new A()
