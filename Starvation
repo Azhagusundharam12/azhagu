@@ -1,0 +1,13 @@
+func receiver() {
+    for {
+        msg, err := bufio.NewReader(conn).ReadString(byte(protocol.EndOfMessage))
+        if err != nil {
+            fmt.Printf("Disconnected from server %v.\n", conn.RemoteAddr())
+            return
+        }
+        if len(msg) < 2 {
+            continue
+        }
+        receiverToHandler <- msg[1 : len(msg)-1]
+    }
+}
