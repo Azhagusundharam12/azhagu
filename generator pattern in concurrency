@@ -1,0 +1,19 @@
+func generateRandomNumbers (n int) {
+    ch := make (chan float)
+    sem := make (semaphore, n)
+
+    for i := 0; i < n; i++ {
+        go func () {
+            ch <- rand.Float()
+            sem.Signal()
+        } ()
+    }
+
+    // launch extra goroutine to eventually close ch
+    go func () {
+        sem.Wait(n)
+        close(ch)
+    }
+   
+    return ch
+}
