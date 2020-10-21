@@ -1,0 +1,29 @@
+package main
+
+import (
+    "fmt"
+    "strings"
+)
+
+func main() {
+
+    w1 := "Hello"
+    w2 := "hello"
+
+    if w1 == w2 {
+
+        fmt.Println("the strings are equal")
+    } else {
+
+        fmt.Println("the strings are not equal")
+    }
+
+    
+    if strings.EqualFold(w1, w2) {
+
+        fmt.Println("the strings are equal")
+    } else {
+
+        fmt.Println("the strings are not equal")
+    }
+}
