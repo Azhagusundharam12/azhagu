@@ -1,0 +1,24 @@
+package main
+import(
+    'fmt',
+    'strings',
+    'strconv'
+)
+var n int = 4
+var sum_of_squares int = 0
+func sumOfSquares(strArray []string, iterate int) int{
+    number, _ := strconv.Atoi(strArray[iterate])
+    if number > 0 {
+        sum_of_squares += number*number
+    }
+    if iterate == n {
+        return 0 // just to end the recursion
+    }
+    return sumOfSquares(strArray, iterate+1)
+}
+func main() {
+    str := "1 2 3 4"
+    strArray := strings.Fields(str)
+    result := sumOfSquares(strArray, 0)
+    fmt.Println(sum_of_squares, result)
+}
