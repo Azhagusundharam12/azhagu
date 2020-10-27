@@ -1,0 +1,13 @@
+func NewMultiplexer(out io.WriteCloser) *Multiplexer {
+    controlInput := make(chan *MuxIn)
+    multiplexer := &Multiplexer {
+        control: controlInput,
+        selectCases: []reflect.SelectCase {
+        reflect.SelectCase {
+            Dir:  reflect.SelectRecv,
+            Chan: reflect.ValueOf(controlInput),
+            Send: reflect.Value{},
+        },
+    }
+    return multiplexer
+}
