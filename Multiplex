@@ -1,0 +1,70 @@
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+func multiplex(cin []chan int, cout chan int) {
+    var cin0, cin1 chan int
+    switch len(cin) {
+    case 2:
+        cin1 = cin[1]
+        fallthrough
+    case 1:
+        cin0 = cin[0]
+    case 0:
+    default:
+        cin0 = make(chan int)
+        cin1 = make(chan int)
+        half := len(cin) / 2
+        go multiplex(cin[:half], cin0)
+        go multiplex(cin[half:], cin1)
+    }
+    for cin0 != nil || cin1 != nil {
+        select {
+        case v, ok := <-cin0:
+            if ok {
+                cout <- v
+            } else {
+                cin0 = nil
+            }
+        case v, ok := <-cin1:
+            if ok {
+                cout <- v
+            } else {
+                cin1 = nil
+            }
+        }
+    }
+    close(cout)
+}
+
+func main() {
+    cin := []chan int{
+        make(chan int),
+        make(chan int),
+        make(chan int),
+    }
+    cout := make(chan int)
+    for i, c := range cin {
+        go func(x int, cx chan int) {
+            for i := 1; i <= 3; i++ {
+                time.Sleep(100 * time.Millisecond)
+                cx <- x*10 + i
+            }
+            close(cx)
+        }(i, c)
+    }
+    go multiplex(cin, cout)
+    for {
+        select {
+        case v, ok := <-cout:
+            if ok {
+                fmt.Println("main gets", v)
+            } else {
+                return
+            }
+        }
+    }
+}
