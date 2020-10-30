@@ -1,0 +1,35 @@
+func TestServerCreateLaptop(t *testing.T) {
+    t.Parallel()
+
+    testCases := []struct {
+        name   string
+        laptop *pb.Laptop
+        store  service.LaptopStore
+        code   codes.Code
+    }{
+        {
+            name:   "success_with_id",
+            laptop: sample.NewLaptop(),
+            store:  service.NewInMemoryLaptopStore(),
+            code:   codes.OK,
+        },
+        {
+            name:   "success_no_id",
+            laptop: laptopNoID,
+            store:  service.NewInMemoryLaptopStore(),
+            code:   codes.OK,
+        },
+        {
+            name:   "failure_invalid_id",
+            laptop: laptopInvalidID,
+            store:  service.NewInMemoryLaptopStore(),
+            code:   codes.InvalidArgument,
+        },
+        {
+            name:   "failure_duplicate_id",
+            laptop: laptopDuplicateID,
+            store:  storeDuplicateID,
+            code:   codes.AlreadyExists,
+        },
+    }
+}
