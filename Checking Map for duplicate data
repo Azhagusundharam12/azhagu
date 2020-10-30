@@ -1,0 +1,20 @@
+// ErrAlreadyExists is returned when a record with the same ID already exists in the store
+var ErrAlreadyExists = errors.New("record already exists")
+
+// Save saves the laptop to the store
+func (store *InMemoryLaptopStore) Save(laptop *pb.Laptop) error {
+    store.mutex.Lock()
+    defer store.mutex.Unlock()
+
+    if store.data[laptop.Id] != nil {
+        return ErrAlreadyExists
+    }
+
+    other, err := deepCopy(laptop)
+    if err != nil {
+        return err
+    }
+
+    store.data[other.Id] = other
+    return nil
+}
