@@ -1,0 +1,5 @@
+// InMemoryLaptopStore stores laptop in memory
+type InMemoryLaptopStore struct {
+    mutex sync.RWMutex
+    data  map[string]*pb.Laptop
+}
