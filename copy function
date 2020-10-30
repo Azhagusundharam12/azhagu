@@ -1,0 +1,10 @@
+func deepCopy(laptop *pb.Laptop) (*pb.Laptop, error) {
+    other := &pb.Laptop{}
+
+    err := copier.Copy(other, laptop)
+    if err != nil {
+        return nil, fmt.Errorf("cannot copy laptop data: %w", err)
+    }
+
+    return other, nil
+}
