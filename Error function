@@ -1,0 +1,23 @@
+func (server *LaptopServer) CreateLaptop(
+    ctx context.Context,
+    req *pb.CreateLaptopRequest,
+) (*pb.CreateLaptopResponse, error) {
+    ...
+
+    err := server.laptopStore.Save(laptop)
+    if err != nil {
+        code := codes.Internal
+        if errors.Is(err, ErrAlreadyExists) {
+            code = codes.AlreadyExists
+        }
+
+        return nil, status.Errorf(code, "cannot save laptop to the store: %v", err)
+    }
+
+    log.Printf("saved laptop with id: %s", laptop.Id)
+
+    res := &pb.CreateLaptopResponse{
+        Id: laptop.Id,
+    }
+    return res, nil
+}
