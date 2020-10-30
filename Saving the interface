@@ -1,0 +1,5 @@
+// LaptopStore is an interface to store laptop
+type LaptopStore interface {
+    // Save saves the laptop to the store
+    Save(laptop *pb.Laptop) error
+}
