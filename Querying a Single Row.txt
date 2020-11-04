@@ -1,0 +1,9 @@
+var tag Tag
+// Execute the query
+err = db.QueryRow("SELECT id, name FROM tags where id = ?", 2).Scan(&tag.ID, &tag.Name)
+if err != nil {
+    panic(err.Error()) // proper error handling instead of panic in your app
+}
+
+log.Println(tag.ID)
+log.Println(tag.Name)
