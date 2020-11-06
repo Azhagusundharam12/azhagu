@@ -1,0 +1,13 @@
+func returnSingleArticle(w http.ResponseWriter, r *http.Request) {
+    vars := mux.Vars(r)
+    key := vars["id"]
+
+    // Loop over all of our Articles
+    // if the article.Id equals the key we pass in
+    // return the article encoded as JSON
+    for _, article := range Articles {
+        if article.Id == key {
+            json.NewEncoder(w).Encode(article)
+        }
+    }
+}

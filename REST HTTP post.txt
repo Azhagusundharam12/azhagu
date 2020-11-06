@@ -1,0 +1,10 @@
+func handleRequests() {
+    myRouter := mux.NewRouter().StrictSlash(true)
+    myRouter.HandleFunc("/", homePage)
+    myRouter.HandleFunc("/articles", returnAllArticles)
+    // NOTE: Ordering is important here! This has to be defined before
+    // the other `/article` endpoint. 
+    myRouter.HandleFunc("/article", createNewArticle).Methods("POST")
+    myRouter.HandleFunc("/article/{id}", returnSingleArticle)
+    log.Fatal(http.ListenAndServe(":10000", myRouter))
+}

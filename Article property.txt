@@ -1,0 +1,9 @@
+//path variable
+myRouter.HandleFunc("/article/{id}", returnSingleArticle)
+
+type Article struct {
+    Id      string `json:"Id"`
+    Title   string `json:"Title"`
+    Desc    string `json:"desc"`
+    Content string `json:"content"`
+}
